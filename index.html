@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caçambix Caçambas – Locação de Caçambas Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #25d366;
+            --secondary-color: #128c7e;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: var(--text-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-nav {
+            background: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h2 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-hero:hover {
+            background: var(--secondary-color);
+        }
+
+        .hero-features {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .features h3 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .faq h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .faq > .container > p {
+            margin-bottom: 40px;
+            color: var(--gray);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        details {
+            background: var(--white);
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 20px;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .content {
+            padding: 0 20px 20px;
+            color: var(--gray);
+        }
+
+        .faq-cta {
+            margin-top: 40px;
+        }
+
+        .btn-faq {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            color: #ccc;
+            max-width: 400px;
+        }
+
+        .footer-contact h4 {
+            margin-bottom: 20px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav a {
+                margin: 0 10px;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Caçambix Caçambas</h1>
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#faq">FAQ</a>
+                <a href="#" class="btn-whatsapp-link btn-nav">Solicitar Orçamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="badge">
+                <i class="fas fa-truck"></i> Entrega em até 24h
+            </div>
+            <h2>Locação de Caçambas<br><span>Envio Rápido e Atendimento Online</span></h2>
+            <p>A Caçambix Caçambas oferece soluções práticas e sustentáveis para descarte de entulho. Solicite seu orçamento agora mesmo pelo WhatsApp!</p>
+            <a href="#" class="btn-whatsapp-link btn-hero">
+                <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+            </a>
+            <div class="hero-features">
+                <span><i class="far fa-clock"></i> Atendimento 24h</span>
+                <span><i class="fas fa-truck"></i> Entrega Rápida</span>
+                <span><i class="far fa-comment-dots"></i> Orçamento Online</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Caçambas Amarelas">
+                </div>
+                <div class="about-text">
+                    <span class="section-subtitle">SOBRE NÓS</span>
+                    <h3>Tradição e Qualidade em Locação de Caçambas</h3>
+                    <p>A Caçambix Caçambas nasceu com o compromisso de oferecer soluções práticas e sustentáveis para o descarte de resíduos da construção civil e limpeza em geral. Ao longo dos anos, conquistamos a confiança de centenas de clientes com nosso atendimento diferenciado e serviço de qualidade.</p>
+                    <p>Nossa missão é facilitar a vida de nossos clientes, oferecendo caçambas de diversos tamanhos com entrega e retirada ágil, sempre respeitando as normas ambientais e contribuindo para um futuro mais sustentável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="features">
+        <div class="container">
+            <span class="section-subtitle">NOSSOS DIFERENCIAIS</span>
+            <h3>Motivos para escolher a CAÇAMBIX</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-truck-fast"></i>
+                    <h4>Entrega Rápida</h4>
+                    <p>Entregamos sua caçamba em até 24 horas após a confirmação do pedido. Agilidade e pontualidade garantidas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>Atendimento Online</h4>
+                    <p>Suporte completo via WhatsApp. Tire dúvidas, solicite orçamentos e acompanhe seu pedido de forma prática.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Compromisso Ambiental</h4>
+                    <p>Descarte responsável e sustentável. Todo o material coletado é destinado corretamente conforme a legislação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <span class="section-subtitle">FAQ</span>
+            <h3>Perguntas Frequentes</h3>
+            <p>Tire suas principais dúvidas sobre nossos serviços de locação de caçambas</p>
+            
+            <div class="accordion">
+                <details>
+                    <summary>Quais tamanhos de caçamba vocês oferecem?</summary>
+                    <div class="content">
+                        <p>Oferecemos caçambas de 3m³, 5m³ e 7m³. O tamanho ideal depende do volume de material a ser descartado. Nossa equipe pode ajudá-lo a escolher a melhor opção para sua necessidade.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Qual o prazo de entrega da caçamba?</summary>
+                    <div class="content">
+                        <p>Trabalhamos com entrega em até 24 horas após a confirmação do pedido. Em casos urgentes, podemos realizar a entrega no mesmo dia, dependendo da disponibilidade.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Por quanto tempo posso ficar com a caçamba?</summary>
+                    <div class="content">
+                        <p>O período padrão de locação é de 3 a 5 dias úteis. Caso precise de mais tempo, entre em contato conosco para combinarmos uma extensão do prazo.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>O que pode ser colocado na caçamba?</summary>
+                    <div class="content">
+                        <p>Aceitamos entulho de construção civil, restos de reformas, materiais descartáveis em geral. Não é permitido descartar lixo orgânico, produtos químicos, pneus ou materiais hospitalares.</p>
+                    </div>
+                </details>
+            </div>
+            
+            <div class="faq-cta">
+                <a href="#" class="btn-whatsapp-link btn-faq">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h2>Caçambix Caçambas</h2>
+                    <p>Soluções práticas e sustentáveis para descarte de entulho. Sua parceira em locação de caçambas.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fab fa-whatsapp"></i> (11) 95281-0625</p>
+                    <p><i class="far fa-clock"></i> Seg - Sáb: 7h às 18h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Caçambix Caçambas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="btn-whatsapp-link whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneNumber = '5511952810625';
+            const message = encodeURIComponent('Olá! Gostaria de solicitar um orçamento para locação de caçamba.');
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+            // Seleciona todos os elementos com a classe btn-whatsapp-link
+            const whatsappButtons = document.querySelectorAll('.btn-whatsapp-link');
+
+            // Atribui o link do WhatsApp a cada botão
+            whatsappButtons.forEach(button => {
+                button.href = whatsappUrl;
+                button.target = '_blank';
+            });
+        });
+    </script>
+</body>
+</html>
